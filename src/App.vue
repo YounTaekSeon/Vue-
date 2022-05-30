@@ -1,30 +1,36 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <!-- 기본 구성 -->
+  <!-- <div class="home">
+    <header>Header</header>
+    <nav>Nav</nav>
+    <section>
+      <aside>Aside</aside>
+      <article>Article</article>
+    </section>
+    <footer>Footer</footer>
+  </div> -->
+  <main-view></main-view>
+  <index-view></index-view>
+  <contents-view></contents-view>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import MainView from "@/views/MainView.vue";
+import IndexView from "@/views/IndexView.vue";
+import ContentsView from "@/views/ContentsView.vue";
+export default {
+  data() {
+    return {};
+  },
 
-nav {
-  padding: 30px;
+  components: {
+    MainView,
+    IndexView,
+    ContentsView,
+  },
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  mounted() {},
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+  methods: {},
+};
+</script>

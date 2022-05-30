@@ -1,25 +1,34 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 
+// routes를 매핑하여 사용하기 위함
+import RouteMapping from "./routes";
+
+// 화면에 보여줄 \view 추가
+import MainView from "@/views/MainView.vue";
+import IndexView from "@/views/IndexView.vue";
+import ContentsView from "@/views/ContentsView.vue";
+
+// 매핑한 routes 가져와서 components 연결
 const routes = [
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
+    path: RouteMapping.main,
+    name: "main",
+    component: MainView,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: RouteMapping.index,
+    name: "index",
+    component: IndexView,
+  },
+  {
+    path: RouteMapping.contents,
+    name: "contents",
+    component: ContentsView,
   },
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes,
 });
 
